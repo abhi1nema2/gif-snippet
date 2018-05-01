@@ -6,7 +6,7 @@ const BUILD_DIR = path.resolve(__dirname, 'public');
 const APP_DIR = path.resolve(__dirname, 'src');
 
 const config = {
-	entry: ['./index.js','./src/components/app.scss'],
+	entry: ['babel-polyfill', './index.js', './src/components/app.scss'],
 	output: {
 		path: BUILD_DIR,
 		filename: 'bundle.js'
@@ -25,7 +25,7 @@ const config = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ["es2015", "es2017", "stage-0", "react"],
+            presets: ["babel-polyfill", "es2015", "es2017", "stage-0", "react"],
           },
         },
       },

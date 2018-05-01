@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react';
-import AceEditor from 'react-ace';;
+import AceEditor from 'react-ace';
 
 import domtoimage from '../utils/domToCanvas';
 
