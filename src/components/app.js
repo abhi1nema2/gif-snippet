@@ -1,6 +1,5 @@
 import React, {Component, Fragment} from 'react';
 import AceEditor from 'react-ace';
-
 import domtoimage from '../utils/domToCanvas';
 
 import "brace/ext/language_tools";
@@ -42,6 +41,29 @@ export default class App extends Component {
         });
         this.editorHeight = window.screen.height * 0.6,
         this.editorWidth = window.screen.width * 0.8
+        this.themeFiles = ['ambiance','chaos','chrome','clouds','clouds_midnight','cobalt',
+                        +'crimson_editor','dawn','dracula','dreamweaver','eclipse','github',
+                        +'gob','gruvbox','idle_fingers','iplastic','katzenmilch','kr_theme',
+                        +'kuroir','merbivore','merbivore_soft','monokai','mono_industrial',
+                        +'pastel_on_dark','solarized_dark','solarized_light',
+                        +'sqlserver','terminal','textmate','tomorrow','tomorrow_night',
+                        +'tomorrow_night_blue','tomorrow_night_bright','tomorrow_night_eighties',
+                        +'twilight','vibrant_ink','xcode'];
+
+        this.modeFiles = ['abap','abc','actionscript','ada','apache_conf','applescript','asciidoc','assembly_x86',
+        +'autohotkey','batchfile','bro','c9search','cirru','clojure','cobol','coffee','coldfusion','csharp',
+        +'csound_document','csound_orchestra','csound_score','css','curly','c_cpp','d','dart','diff','django',
+        +'dockerfile','dot','drools','eiffel','ejs','elixir','elm','erlang','forth','fortran','ftl','gcode','gherkin',
+        +'gitignore','glsl','gobstones','golang','graphqlschema','groovy','haml','handlebars','haskell','haskell_cabal',
+        +'haxe','hjson','html','html_elixir','html_ruby','ini','io','jack','jade','java','javascript','json','jsoniq',
+        +'jsp','jssm','jsx','julia','kotlin','latex','lean','less','liquid','lisp','livescript','live_script','logiql',
+        +'lsl','lua','luapage','lucene','makefile','markdown','mask','matlab','mavens_mate_log','maze','mel',
+        +'mipsassembler','mips_assembler','mushcode','mysql','nix','nsis','objectivec','ocaml','pascal','perl',
+        +'pgsql','php','pig','plain_text','powershell','praat','prolog','properties','protobuf','python','r','razor',
+        +'rdoc','red','rhtml','rst','ruby','rust','sass','scad','scala','scheme','scss','sh','sjs','smarty','snippets',
+        +'soy_template','space','sparql','sql','sqlserver','stylus','svg','swift','swig','tcl','tex','text','textile',
+        +'toml','tsx','turtle','twig','typescript','vala','vbscript','velocity','verilog','vhdl','wollok','xml',
+        +'xquery','yaml'];
     }
 
     getGif = () => {
@@ -102,6 +124,22 @@ export default class App extends Component {
 	render () {
         const { imageSrc, selectValue, code, theme, mode } = this.state;
 
+            let themeOptions = this.themeFiles.map((item,index) => {
+                return <option key={index} value={item}>{item}</option>
+            })
+
+            let modeOptions = this.modeFiles.map((item,index) => {
+                return <option key={index} value={item}>{item}</option>
+            })
+
+            let delaySeconds = [];
+            for(let i=0.1;i<1;i+=0.1){
+                delaySeconds.push(i.toFixed(1))
+            }
+            let delayOptions = delaySeconds.map((item,index) => {
+                return <option key={index} value={item}>{`${item}s`}</option>
+            })
+
 
 		return (
                 <div className="container">
@@ -110,11 +148,7 @@ export default class App extends Component {
                         <div className = "subContainer__inputContainer">
                             <div className="subContainer__customizeOptions">
                                 <select className="subContainer__customizeOptions__dropdown" onChange={this.onSelectChange} value={selectValue}>
-                                    <option value={0.1}>0.1s</option>
-                                    <option value={0.2}>0.2s</option>
-                                    <option value={0.3}>0.3s</option>
-                                    <option value={0.4}>0.4s</option>
-                                    <option value={0.5}>0.5s</option>
+                                    {delayOptions}
                                 </select>
                                 <select
                                     style={{ paddingLeft: "15px", paddingRight: "11px" }}
@@ -124,9 +158,7 @@ export default class App extends Component {
                                     onChange={this.onThemeChange}
                                     className="subContainer__customizeOptions__dropdown"
                                 >
-                                    <option value='github'>github</option>
-                                    <option value='monokai'>monokai</option>
-                                    <option value='tomorrow'>tomorrow</option>
+                                    {themeOptions}
                                 </select>
                                 <select
                                     style={{ paddingLeft: "15px", paddingRight: "11px" }}
@@ -136,10 +168,7 @@ export default class App extends Component {
                                     onChange={this.onModeChange}
                                     className="subContainer__customizeOptions__dropdown"
                                 >
-                                    <option value='javascript'>javascript</option>
-                                    <option value='css'>css</option>
-                                    <option value='less'>less</option>
-                                    <option value='html'>html</option>
+                                   {modeOptions}
                                 </select>
                                 <button className="subContainer__button" onClick={this.getGif} >Get gifs</button>
                             </div>
