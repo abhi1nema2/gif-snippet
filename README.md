@@ -1,1 +1,1 @@
-# gif-snippet
+__gif-snippet__
