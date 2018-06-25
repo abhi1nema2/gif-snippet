@@ -1,0 +1,58 @@
+h1, body {
+  margin: 0;
+  padding: 0; }
+
+.aceEditor {
+  margin: 0 auto;
+  box-shadow: 0 0 30px rgba(126, 120, 120, 0.719);
+  border-radius: 5px; }
+
+.container {
+  background-color: black;
+  padding-bottom: 50px;
+  font-family: tahoma; }
+  .container__header {
+    color: whitesmoke;
+    text-align: center;
+    padding: 30px; }
+
+.subContainer {
+  clear: both; }
+  .subContainer__inputContainer, .subContainer__outputContainer {
+    border: 3px solid white;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 5px;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 100px; }
+  .subContainer__button {
+    background-color: black;
+    border: none;
+    color: white;
+    border: 1px solid white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    float: right;
+    border-radius: 5px;
+    cursor: pointer; }
+  .subContainer__customizeOptions {
+    margin-bottom: 10px; }
+    .subContainer__customizeOptions__dropdown {
+      padding: 15px 12px;
+      font-size: 20px;
+      background-color: black;
+      color: white;
+      border-radius: 4px;
+      margin-right: 30px; }
+  .subContainer__inputTextArea {
+    border: 1px solid;
+    background-color: lightslategrey;
+    padding: 50px 0; }
+  .subContainer__outputContainer__img {
+    width: 100%; }
